@@ -9,6 +9,7 @@
 
   <div class="container">
     <x-dashboard />
-    <x-network_connections />
+    <x-network_connections :suggestionsCount="$suggestionsCount" :sentRequestsCount="$sentRequestsCount"
+    :receivedRequestsCount="$receivedRequestsCount" :connectionsCount="$connectionsCount"/>
   </div>
 @endsection

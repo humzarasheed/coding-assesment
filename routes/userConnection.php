@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\ConnectionController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\RequestController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,11 +16,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// routes to handle sent/received/withdrawn requests
+Route::resource('request', RequestController::class);
 
-
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('suggestions', [HomeController::class, 'suggestions']);
+// handle connections requests
+Route::get('/', [ConnectionController::class, 'index']);
+Route::get('connectionsInCommon', [ConnectionController::class, 'getMoreConnectionsInCommon']);
