@@ -15,4 +15,20 @@ class Request extends Model
         'receiver_id',
         'status',
     ];
+
+    /**
+     * Get the sender associated with the request.
+     */
+    public function sender()
+    {
+        return $this->hasOne(User::class, 'id', 'sender_id');
+    }
+
+    /**
+     * Get the receiver associated with the request.
+     */
+    public function receiver()
+    {
+        return $this->hasOne(User::class, 'id', 'receiver_id');
+    }
 }

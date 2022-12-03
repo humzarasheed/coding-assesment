@@ -17,8 +17,8 @@ class RequestFactory extends Factory
     public function definition()
     {
         return [
-            'sender_id' => rand(1,15),
-            'receiver_id' => rand(16,30)
+            'sender_id' => rand(1,10),
+            'receiver_id' => rand(1,10)
         ];
     }
 }

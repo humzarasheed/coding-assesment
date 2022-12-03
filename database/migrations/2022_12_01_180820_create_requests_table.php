@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('sender_id')->index();
             $table->unsignedBigInteger('receiver_id')->index();
-            $table->enum('status', ['Sent', 'Withdrawn', 'Accepted'])->default('Sent');
+            $table->enum('status', ['Sent', 'Accepted', 'Removed'])->default('Sent');
             $table->foreign('sender_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('receiver_id')->references('id')->on('users')->onDelete('cascade');
             $table->softDeletes();

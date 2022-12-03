@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\ConnectionController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\RequestController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,3 +16,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// routes to handle sent/received/withdrawn requests
+Route::resource('request', RequestController::class);
+
+// handle connections requests
+Route::get('/', [ConnectionController::class, 'index']);
+Route::get('connectionsInCommon', [ConnectionController::class, 'getMoreConnectionsInCommon']);
